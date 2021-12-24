@@ -12,3 +12,8 @@ exports.createMovie = (req, res, next) => {
   console.log(req.body);
 };
 
+exports.getAllMovie = (req, res, next) => {
+  Movie.find()
+    .then((movie) => res.status(201).json(movie))
+    .catch((error) => res.status(401).json(error));
+};
